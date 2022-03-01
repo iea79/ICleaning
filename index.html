@@ -5,31 +5,402 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="http://zhenkalc.beget.tech/wp-content/themes/icompany/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css?0.1"/>
   </head>
   <body>
-    <header class="header">
-      <div class="header__content">
-        <div class="header__left"><a class="logo" href="/"><img src="img/logo.png" alt="alt"/></a></div>
-        <nav class="header__right">
-          <ul class="navbar">
-            <li class="navbar__item"><a class="navbar__link" href="">Page1</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page2</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page3</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page4</a></li>
-          </ul>
-        </nav>
+    <div class="container_center">
+      <!-- begin notCacl-->
+      <form class="notCacl" action="">
+        <div class="notCacl__content">
+          <div class="notCacl__steps">
+            <div class="notCacl__step step_1 active">график и персонал</div>
+            <div class="notCacl__step step_2">расходники</div>
+            <div class="notCacl__step step_3">техника</div>
+          </div>
+          <!-- begin step-1-->
+          <div class="notCacl__item step_1 active" id="step-1">
+            <div class="notCacl__columns">
+              <div class="notCacl__col">
+                <div class="notCacl__time">
+                  <div class="notCacl__title">Уборщик</div>
+                  <div class="notCacl__timeCheck">
+                    <label class="form__check">
+                      <input type="radio" name="cleaner_job_time" checked="checked"/><span>Весь день</span>
+                    </label>
+                    <label class="form__check">
+                      <input type="radio" name="cleaner_job_time"/><span>Утром или вечером</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="notCacl__range">
+                  <div class="notCacl__label">Количество <br>персонала в месяц</div>
+                  <div class="range">
+                    <div class="range__wrapper">
+                      <input type="hidden" name="cleaner_personal_quantity"/>
+                      <div class="range__numbers"></div>
+                      <div class="range__slider" data-max="11"></div>
+                    </div>
+                    <div class="range__rezult"></div>
+                  </div>
+                </div>
+                <div class="notCacl__range">
+                  <div class="notCacl__label">Сколько дней в неделю</div>
+                  <div class="range">
+                    <div class="range__wrapper">
+                      <input type="hidden" name="cleaner_day_in_month"/>
+                      <div class="range__numbers"></div>
+                      <div class="range__slider" data-max="7"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="notCacl__col">
+                <div class="notCacl__title notCacl__title_height">Администратор</div>
+                <div class="notCacl__range">
+                  <div class="notCacl__label">Количество <br>персонала в месяц</div>
+                  <div class="range">
+                    <div class="range__wrapper">
+                      <input type="hidden" name="administrator_personal_quantity"/>
+                      <div class="range__numbers"></div>
+                      <div class="range__slider" data-max="10"></div>
+                    </div>
+                    <div class="range__rezult"></div>
+                  </div>
+                </div>
+                <div class="notCacl__range">
+                  <div class="notCacl__label">Сколько дней в неделю</div>
+                  <div class="range">
+                    <div class="range__wrapper">
+                      <input type="hidden" name="administrator_day_in_month"/>
+                      <div class="range__numbers"></div>
+                      <div class="range__slider" data-max="7"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="notCacl__col">
+                <div class="notCacl__title">Посудомойщик</div>
+                <div class="quantity quantity__row">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="dishwasher_quantity"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+                <div class="notCacl__title">Гардеробщик</div>
+                <div class="quantity quantity__row">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="cloakroom_attendant_quantity"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+                <div class="notCacl__title">Грузчик</div>
+                <div class="quantity quantity__row">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="loader_quantity"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+                <div class="notCacl__title">Кофе-леди</div>
+                <div class="quantity quantity__row">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="coffee_lady_quantity"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+              </div>
+            </div>
+            <div class="notCacl__footer">
+              <div class="notCacl__footer_item">
+                <div class="notCacl__title">Дополнительные <br>требования к персоналу</div>
+                <div class="notCacl__footer_checks">
+                  <div class="form__check">
+                    <input type="checkbox" name="medical_book"/><span>Медицинская книжка</span>
+                  </div>
+                  <div class="form__check">
+                    <input type="checkbox" name="slavic_appearance"/><span>Славянская внешность</span>
+                  </div>
+                </div>
+              </div><span></span>
+              <button class="btn next" data-next-step="2" type="button">Далее</button>
+            </div>
+          </div>
+          <!-- end step-1-->
+          <!-- begin step-2-->
+          <div class="notCacl__item step_2" id="step-2">
+            <div class="notCacl__row">
+              <div class="notCacl__title">Инвентарь для уборки</div>
+              <div class="notCacl__chekgroup">
+                <label class="form__check">
+                  <input type="checkbox" name="inventory_truck" checked="checked"/><span>Тележки</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="inventory_flooders"/><span>Флаундеры</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="inventory_brush"/><span>Щетка</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="inventory_buckets"/><span>Вёдра</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="inventory_ladder"/><span>Стремянка</span>
+                </label>
+              </div>
+            </div>
+            <div class="notCacl__row">
+              <div class="notCacl__title">Расходники</div>
+              <div class="notCacl__chekgroup">
+                <label class="form__check">
+                  <input type="checkbox" name="consumables_mops"/><span>Мопы</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="consumables_gloves"/><span>Перчатки</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="consumables_glasswash"/><span>Стекломой</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="consumables_sponges"/><span>Губки</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="consumables_coat"/><span>Шубки</span>
+                </label>
+              </div>
+            </div>
+            <div class="notCacl__row">
+              <div class="notCacl__title">Химия <br>(средства для мытья)</div>
+              <div class="notCacl__chekgroup">
+                <label class="form__check">
+                  <input type="checkbox" name="chemistry_floor"/><span>для Полов</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="chemistry_furniture"/><span>для Мебели</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="chemistry_window"/><span>для Окон</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="chemistry_walls"/><span>для Стен</span>
+                </label>
+                <label class="form__check">
+                  <input type="checkbox" name="chemistry_ceramics"/><span>для Керамики</span>
+                </label>
+              </div>
+            </div>
+            <div class="notCacl__footer">
+              <div class="notCacl__footer_item">
+                <div class="notCacl__title">Сумма <br>на сопутствующие товары</div>
+                <div class="notCacl__summ">
+                  <input type="number" value="0" name="related_products"/><span>руб.</span>
+                </div>
+              </div>
+              <div class="notCacl__footer_item">
+                <div class="notCacl__title">Другие <br>расходники <br>на сумму</div>
+                <div class="notCacl__summ">
+                  <input type="number" value="0" name="other_consumables"/><span>руб.</span>
+                </div>
+              </div>
+              <button class="btn next" data-next-step="3" type="button">Далее</button>
+            </div>
+          </div>
+          <!-- end step-2-->
+          <!-- begin step-3-->
+          <div class="notCacl__item step_3" id="step-3">
+            <div class="notCacl__grid">
+              <div class="notCacl__plate">
+                <div class="notCacl__title">Пылесос</div>
+                <div class="quantity">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="vacuum_cleaner"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+              </div>
+              <div class="notCacl__plate">
+                <div class="notCacl__title">Аккумуляторная поломоечная машина</div>
+                <div class="quantity">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="floor_scrubber"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+              </div>
+              <div class="notCacl__plate">
+                <div class="notCacl__title">Роторная машина</div>
+                <div class="quantity">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="rotary_machine"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+              </div>
+              <div class="notCacl__plate">
+                <div class="notCacl__title">Сетевая поломоечная машина</div>
+                <div class="quantity">
+                  <div class="quantity__btn minus">-</div>
+                  <input type="number" min="0" value="0" name="floor_scrubber"/>
+                  <div class="quantity__btn plus">+</div>
+                </div>
+              </div>
+              <div class="notCacl__plate">
+                <div class="notCacl__title">Прочая техника <br>на сумму</div>
+                <div class="notCacl__summ">
+                  <input type="number" min="0" value="0" name="other_equipment"/><span>руб.</span>
+                </div>
+              </div>
+            </div>
+            <div class="notCacl__footer"><span></span>
+              <button class="btn next" data-next-step="4" type="button">Расчёт</button>
+            </div>
+          </div>
+          <!-- end step-3-->
+        </div>
+        <div class="notCacl__rezult">
+          <div class="notCacl__rezultHead">Сумма ваших расходов</div>
+          <div class="notCacl__rezultWrap">
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Зарплата персонала</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_staff_salary" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Зарплата администратора(ов)</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_staff_admin" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Инвентарь</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_inventory" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Расходники</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_consumables" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Химия</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_chemistry" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Дополнительные товары</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_additional_goods" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Техника</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_technics" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultRow">
+              <div class="notCacl__rezultLabel">Налоги</div>
+              <div class="notCacl__rezultSumm">
+                <input type="hidden" name="rezult_tax" value="0"/><span>0</span>руб.
+              </div>
+            </div>
+            <div class="notCacl__rezultTotal">
+              <div class="notCacl__rezultRow">
+                <div class="notCacl__rezultLabel">ИТОГО</div>
+                <div class="notCacl__rezultSumm">
+                  <input type="hidden" name="rezult_total" value="0"/><span>0</span>руб.
+                </div>
+              </div>
+            </div>
+            <div class="notCacl__rezultEnd">
+              <button class="btn" type="submit" disabled="disabled"><i class="icon_download"> </i>Сохранить мой расчет</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- end notCacl-->
+    </div>
+    <!-- Button trigger modal noCalcModal-->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#noCalcModal">Отправить рассчет</button>
+    <!-- Begin Modal noCalcModal-->
+    <div class="modal fade noCalcModal" id="noCalcModal">
+      <div class="modal-dialog">
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal-header">
+            <div class="modal-title">Введите свой e-mail <br>и мы отправим вам письмо с расчетом</div>
+          </div>
+          <div class="modal-body"> 
+            <form class="form">
+              <div class="form__row">
+                <input type="email" placeholder="Ваш e-mail"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Отправить</button>
+              </div>
+              <div class="form__privacy">
+                <label class="form__check">
+                  <input type="checkbox"/><span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с <a href="#">Политикой обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </header>
-    <main class="main_content">
-      <div class="container_center"></div>
-    </main>
-    <footer class="footer">
-      <div class="footer__content">
-        <p></p>&copy; 2016 |<i class="fa fa-github" aria-hidden="true">&nbsp;</i><a href="#">View Source</a>
+    </div>
+    <!-- End modal noCalcModal-->
+    <!-- Button trigger modal noCalcGetAnalize-->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#noCalcGetAnalize">хочу получить анализ</button>
+    <!-- Begin Modal noCalcGetAnalize-->
+    <div class="modal fade noCalcGetAnalize" id="noCalcGetAnalize">
+      <div class="modal-dialog">
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal-header">
+            <div class="modal-title modal-title_success">Спасибо! Расчет уже на вашей почте.</div>
+            <div class="modal-title">Хотите получить анализ и узнать, <br>как можно оптимизировать ваши расходы?</div>
+          </div>
+          <div class="modal-body">
+            <div class="noCalcGetAnalize__box">
+              <div class="notCacl__rezultRow">
+                <div class="notCacl__rezultLabel">Зарплата персонала</div>
+                <div class="notCacl__rezultSumm">
+                  <input type="hidden" name="" value="0"/><span>0</span>руб.
+                </div>
+              </div>
+              <div class="notCacl__rezultRow">
+                <div class="notCacl__rezultLabel">Зарплата администратора(ов)</div>
+                <div class="notCacl__rezultSumm">
+                  <input type="hidden" name="" value="0"/><span>0</span>руб.
+                </div>
+              </div>
+              <div class="notCacl__rezultRow">
+                <div class="notCacl__rezultLabel">Инвентарь</div>
+                <div class="notCacl__rezultSumm">
+                  <input type="hidden" name="" value="0"/><span>0</span>руб.
+                </div>
+              </div>
+              <div class="notCacl__rezultRow">
+                <div class="notCacl__rezultLabel">Расходники</div>
+                <div class="notCacl__rezultSumm">
+                  <input type="hidden" name="" value="0"/><span>0</span>руб.
+                </div>
+              </div>
+              <div class="notCacl__rezultTotal">
+                <div class="notCacl__rezultRow">
+                  <div class="notCacl__rezultLabel">ИТОГО</div>
+                  <div class="notCacl__rezultSumm">
+                    <input type="hidden" name="rezult_total" value="0"/><span>0</span>руб.
+                  </div>
+                </div>
+              </div>
+              <div class="noCalcGetAnalize__btn">
+                <button class="btn" type="button">Да, хочу получить анализ</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+    <!-- End modal noCalcGetAnalize-->
     <script src="js/jquery.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="js/function.js?0.1"></script>
   </body>
 </html>

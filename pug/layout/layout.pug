@@ -7,13 +7,15 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
 
+        link(rel="stylesheet", type="text/css", href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css")
+        link(rel="stylesheet", type="text/css", href="http://zhenkalc.beget.tech/wp-content/themes/icompany/css/style.css")
         link(rel="stylesheet", type="text/css", href="css/style.css?"+version+"")
     body
-        include header.pug
+        //- include header.pug
 
-        main.main_content
-            block content
+        //- main.main_content
+        block content
 
-        include footer.pug
+        //- include footer.pug
 
         include scripts.pug

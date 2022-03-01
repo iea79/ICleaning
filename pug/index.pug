@@ -2,3 +2,347 @@ extends layout/layout.pug
 
 block content
     .container_center
+        // begin notCacl
+        form.notCacl(action="")
+            .notCacl__content
+                .notCacl__steps
+                    .notCacl__step.step_1.active график и персонал
+                    .notCacl__step.step_2 расходники
+                    .notCacl__step.step_3 техника
+
+                // begin step-1
+                .notCacl__item.step_1.active#step-1
+                    .notCacl__columns
+                        .notCacl__col
+                            .notCacl__time
+                                .notCacl__title Уборщик
+                                .notCacl__timeCheck
+                                    label.form__check
+                                        input(type="radio" name="cleaner_job_time" checked) 
+                                        span Весь день
+                                    label.form__check
+                                        input(type="radio" name="cleaner_job_time") 
+                                        span Утром или вечером
+
+                            .notCacl__range
+                                .notCacl__label Количество <br>персонала в месяц
+                                .range
+                                    .range__wrapper
+                                        input(type="hidden" name="cleaner_personal_quantity")
+                                        .range__numbers
+                                        .range__slider(data-max="11")
+                                    .range__rezult
+
+                            .notCacl__range
+                                .notCacl__label Сколько дней в неделю
+                                .range
+                                    .range__wrapper
+                                        input(type="hidden" name="cleaner_day_in_month")
+                                        .range__numbers
+                                        .range__slider(data-max="7")
+                        .notCacl__col
+                            .notCacl__title.notCacl__title_height Администратор
+                            .notCacl__range
+                                .notCacl__label Количество <br>персонала в месяц
+                                .range
+                                    .range__wrapper
+                                        input(type="hidden" name="administrator_personal_quantity")
+                                        .range__numbers
+                                        .range__slider(data-max="10")
+                                    .range__rezult
+
+                            .notCacl__range
+                                .notCacl__label Сколько дней в неделю
+                                .range
+                                    .range__wrapper
+                                        input(type="hidden" name="administrator_day_in_month")
+                                        .range__numbers
+                                        .range__slider(data-max="7")
+
+                        .notCacl__col
+                            .notCacl__title Посудомойщик
+                            .quantity.quantity__row
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="dishwasher_quantity")
+                                .quantity__btn.plus +
+                            .notCacl__title Гардеробщик
+                            .quantity.quantity__row
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="cloakroom_attendant_quantity")
+                                .quantity__btn.plus +
+                            .notCacl__title Грузчик
+                            .quantity.quantity__row
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="loader_quantity")
+                                .quantity__btn.plus +
+                            .notCacl__title Кофе-леди
+                            .quantity.quantity__row
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="coffee_lady_quantity")
+                                .quantity__btn.plus +
+
+                    .notCacl__footer
+                        .notCacl__footer_item
+                            .notCacl__title Дополнительные <br>требования к персоналу
+                            .notCacl__footer_checks
+                                .form__check
+                                    input(type="checkbox" name="medical_book") 
+                                    span Медицинская книжка
+                                .form__check
+                                    input(type="checkbox" name="slavic_appearance") 
+                                    span Славянская внешность
+
+                        span
+                        button.btn.next(data-next-step="2" type="button") Далее
+                // end step-1
+
+                // begin step-2
+                .notCacl__item.step_2#step-2
+                    .notCacl__row
+                        .notCacl__title Инвентарь для уборки
+                        .notCacl__chekgroup
+                            label.form__check
+                                input(type="checkbox" name="inventory_truck" checked) 
+                                span Тележки
+                            label.form__check
+                                input(type="checkbox" name="inventory_flooders") 
+                                span Флаундеры
+                            label.form__check
+                                input(type="checkbox" name="inventory_brush") 
+                                span Щетка
+                            label.form__check
+                                input(type="checkbox" name="inventory_buckets") 
+                                span Вёдра
+                            label.form__check
+                                input(type="checkbox" name="inventory_ladder") 
+                                span Стремянка
+                    .notCacl__row
+                        .notCacl__title Расходники
+                        .notCacl__chekgroup
+                            label.form__check
+                                input(type="checkbox" name="consumables_mops") 
+                                span Мопы
+                            label.form__check
+                                input(type="checkbox" name="consumables_gloves") 
+                                span Перчатки
+                            label.form__check
+                                input(type="checkbox" name="consumables_glasswash") 
+                                span Стекломой
+                            label.form__check
+                                input(type="checkbox" name="consumables_sponges") 
+                                span Губки
+                            label.form__check
+                                input(type="checkbox" name="consumables_coat") 
+                                span Шубки
+                    .notCacl__row
+                        .notCacl__title Химия <br>(средства для мытья)
+                        .notCacl__chekgroup
+                            label.form__check
+                                input(type="checkbox" name="chemistry_floor") 
+                                span для Полов
+                            label.form__check
+                                input(type="checkbox" name="chemistry_furniture") 
+                                span для Мебели
+                            label.form__check
+                                input(type="checkbox" name="chemistry_window") 
+                                span для Окон
+                            label.form__check
+                                input(type="checkbox" name="chemistry_walls") 
+                                span для Стен
+                            label.form__check
+                                input(type="checkbox" name="chemistry_ceramics") 
+                                span для Керамики
+
+                    .notCacl__footer
+                        .notCacl__footer_item
+                            .notCacl__title Сумма <br>на сопутствующие товары
+                            .notCacl__summ
+                                input(type="number" value="0" name="related_products") 
+                                span руб.
+                        .notCacl__footer_item
+                            .notCacl__title Другие <br>расходники <br>на сумму
+                            .notCacl__summ
+                                input(type="number" value="0" name="other_consumables") 
+                                span руб.
+                        button.btn.next(data-next-step="3" type="button") Далее
+
+                // end step-2
+
+                // begin step-3
+                .notCacl__item.step_3#step-3
+                    .notCacl__grid
+                        .notCacl__plate
+                            .notCacl__title Пылесос
+                            .quantity
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="vacuum_cleaner")
+                                .quantity__btn.plus +
+                        .notCacl__plate
+                            .notCacl__title Аккумуляторная поломоечная машина
+                            .quantity
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="floor_scrubber")
+                                .quantity__btn.plus +
+                        .notCacl__plate
+                            .notCacl__title Роторная машина
+                            .quantity
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="rotary_machine")
+                                .quantity__btn.plus +
+                        .notCacl__plate
+                            .notCacl__title Сетевая поломоечная машина
+                            .quantity
+                                .quantity__btn.minus -
+                                input(type="number" min="0" value="0" name="floor_scrubber")
+                                .quantity__btn.plus +
+                        .notCacl__plate
+                            .notCacl__title Прочая техника <br>на сумму
+                            .notCacl__summ
+                                input(type="number" min="0" value="0" name="other_equipment") 
+                                span руб.
+
+                    .notCacl__footer
+                        span
+                        button.btn.next(data-next-step="4" type="button") Расчёт
+
+                // end step-3
+
+            .notCacl__rezult
+                .notCacl__rezultHead Сумма ваших расходов
+                .notCacl__rezultWrap
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Зарплата персонала
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_staff_salary" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Зарплата администратора(ов)
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_staff_admin" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Инвентарь
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_inventory" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Расходники
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_consumables" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Химия
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_chemistry" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Дополнительные товары
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_additional_goods" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Техника
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_technics" value="0")
+                            span 0
+                            | руб.
+                    .notCacl__rezultRow
+                        .notCacl__rezultLabel Налоги
+                        .notCacl__rezultSumm
+                            input(type="hidden" name="rezult_tax" value="0")
+                            span 0
+                            | руб.
+
+                    .notCacl__rezultTotal
+                        .notCacl__rezultRow
+                            .notCacl__rezultLabel ИТОГО
+                            .notCacl__rezultSumm
+                                input(type="hidden" name="rezult_total" value="0")
+                                span 0
+                                | руб.
+
+                    .notCacl__rezultEnd
+                        button.btn(type="submit" disabled)
+                            i.icon_download 
+                            | Сохранить мой расчет
+
+        // end notCacl
+
+    // Button trigger modal noCalcModal
+    button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#noCalcModal") Отправить рассчет
+    // Begin Modal noCalcModal
+    .modal.fade.noCalcModal#noCalcModal
+        .modal-dialog
+            .modal-content
+                a(href="#" class="modal-close" data-dismiss="modal")
+                .modal-header
+                    .modal-title Введите свой e-mail <br>и мы отправим вам письмо с расчетом
+                .modal-body 
+                    form.form
+                        .form__row
+                            input(type="email", placeholder="Ваш e-mail")
+                        .form__row
+                            button.btn(type="submit") Отправить
+                        .form__privacy
+                            label.form__check
+                                input(type="checkbox") 
+                                span Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с 
+                                    a(href="#") Политикой обработки персональных данных
+
+    // End modal noCalcModal
+
+    // Button trigger modal noCalcGetAnalize
+    button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#noCalcGetAnalize") хочу получить анализ
+    // Begin Modal noCalcGetAnalize
+    .modal.fade.noCalcGetAnalize#noCalcGetAnalize
+        .modal-dialog
+            .modal-content
+                a(href="#" class="modal-close" data-dismiss="modal")
+                .modal-header
+                    .modal-title.modal-title_success Спасибо! Расчет уже на вашей почте.
+                    .modal-title Хотите получить анализ и узнать, <br>как можно оптимизировать ваши расходы?
+                .modal-body
+                    .noCalcGetAnalize__box
+                        .notCacl__rezultRow
+                            .notCacl__rezultLabel Зарплата персонала
+                            .notCacl__rezultSumm
+                                input(type="hidden" name="" value="0")
+                                span 0
+                                | руб.
+                        .notCacl__rezultRow
+                            .notCacl__rezultLabel Зарплата администратора(ов)
+                            .notCacl__rezultSumm
+                                input(type="hidden" name="" value="0")
+                                span 0
+                                | руб.
+                        .notCacl__rezultRow
+                            .notCacl__rezultLabel Инвентарь
+                            .notCacl__rezultSumm
+                                input(type="hidden" name="" value="0")
+                                span 0
+                                | руб.
+                        .notCacl__rezultRow
+                            .notCacl__rezultLabel Расходники
+                            .notCacl__rezultSumm
+                                input(type="hidden" name="" value="0")
+                                span 0
+                                | руб.
+
+                        .notCacl__rezultTotal
+                            .notCacl__rezultRow
+                                .notCacl__rezultLabel ИТОГО
+                                .notCacl__rezultSumm
+                                    input(type="hidden" name="rezult_total" value="0")
+                                    span 0
+                                    | руб.
+
+                        .noCalcGetAnalize__btn
+                            button.btn(type="button") Да, хочу получить анализ
+
+    // End modal noCalcGetAnalize
